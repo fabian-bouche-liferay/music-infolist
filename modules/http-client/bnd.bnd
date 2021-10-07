@@ -1,0 +1,19 @@
+Bundle-Name: http-client
+Bundle-SymbolicName: com.liferay.samples.fbo.http.client
+Bundle-Version: 1.0.0
+
+Export-Package:\
+	okhttp3,\
+	com.jayway.jsonpath,\
+	net.minidev.json
+
+Import-Package:\
+	!android.*,\
+	org.conscrypt;resolution:=optional,\
+	com.google.gson;resolution:=optional,\
+	com.google.gson.reflect;resolution:=optional,\
+	javax.annotation.meta;resolution:=optional,\
+	org.apache.tapestry5.json;resolution:=optional,\
+	org.codehaus.jettison.json;resolution:=optional,\
+	org.slf4j.impl;resolution:=optional,\
+	*
