@@ -1,0 +1,10 @@
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+
+	compileOnly group: "org.slf4j", name: "slf4j-api"
+
+	compileOnly group: "com.squareup.okhttp3", name: "okhttp" , version: "3.14.2"
+	compileOnly group: "com.jayway.jsonpath", name: "json-path", version: "2.6.0"
+
+	compileOnly project(":modules:music-api")
+}

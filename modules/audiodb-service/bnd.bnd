@@ -1,0 +1,3 @@
+Bundle-Name: AudioDB Service
+Bundle-SymbolicName: com.liferay.samples.fbo.audiodb.service
+Bundle-Version: 1.0.0
