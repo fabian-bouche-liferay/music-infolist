@@ -6,9 +6,10 @@ import com.liferay.info.pagination.Pagination;
 import com.liferay.info.sort.Sort;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.ServiceContextThreadLocal;
-import com.liferay.samples.fbo.audiodb.infolist.model.Album;
+import com.liferay.samples.fbo.audiodb.infolist.model.Track;
 import com.liferay.samples.fbo.audiodb.service.AlbumService;
 import com.liferay.samples.fbo.audiodb.service.ArtistService;
+import com.liferay.samples.fbo.audiodb.service.TrackService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,40 +21,38 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Component(service = InfoListProvider.class)
-public class AlbumInfoListProvider implements InfoListProvider<Album> {
+public class TrackInfoListProvider implements InfoListProvider<Track> {
 
-	private final static Logger LOG = LoggerFactory.getLogger(AlbumInfoListProvider.class);
+	private final static Logger LOG = LoggerFactory.getLogger(TrackInfoListProvider.class);
 	
 	@Override
-	public List<Album> getInfoList(InfoListProviderContext infoListProviderContext) {
+	public List<Track> getInfoList(InfoListProviderContext infoListProviderContext) {
 
-		LOG.debug("GetInfoList Albums");
+		LOG.debug("GetInfoList Tracks");
 
 		ServiceContext serviceContext = ServiceContextThreadLocal.getServiceContext();
 		LOG.debug("Current URL {}", serviceContext.getCurrentURL());
 		
 		if(serviceContext.getCurrentURL().contains("p_p_id=com_liferay_layout_content_page_editor_web_internal_portlet_ContentPageEditorPortlet")
 				|| serviceContext.getCurrentURL().contains("p_l_mode=preview")) {
-			return new ArrayList<Album>();
+			return new ArrayList<Track>();
 		}
 		
 		long groupId = serviceContext.getScopeGroupId();
 		String[] split = serviceContext.getCurrentURL().split("/");
-		String artistName = split[split.length-1];
+		long albumId = Long.valueOf(split[split.length-1].split("-")[0]);
 		
-		long artistId = _artistService.fetchArtist(artistName, groupId).getArtistId();
-
-		LOG.debug("ArtistId {}", artistId);
+		LOG.debug("AlbumId {}", albumId);
 			
-		List<Album> albums = _albumService.getAlbums(artistId);
+		List<Track> tracks = _trackService.getTracks(albumId);
 		
-		LOG.debug("Found {} albums", albums.size());
+		LOG.debug("Found {} tracks", tracks.size());
 		
-		return albums;
+		return tracks;
 	}
 
 	@Override
-	public List<Album> getInfoList(InfoListProviderContext infoListProviderContext, Pagination pagination, Sort sort) {
+	public List<Track> getInfoList(InfoListProviderContext infoListProviderContext, Pagination pagination, Sort sort) {
 		return getInfoList(infoListProviderContext);
 	}
 
@@ -64,13 +63,10 @@ public class AlbumInfoListProvider implements InfoListProvider<Album> {
 
 	@Override
 	public String getLabel(Locale locale) {
-		return "ALBUMS_PROVIDER";
+		return "TRACKS_PROVIDER";
 	}
-	
-	@Reference
-	private AlbumService _albumService;
 
 	@Reference
-	private ArtistService _artistService;
+	private TrackService _trackService;
 
 }

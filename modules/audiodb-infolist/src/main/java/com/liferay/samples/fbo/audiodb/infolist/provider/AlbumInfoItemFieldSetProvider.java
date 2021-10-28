@@ -26,6 +26,8 @@ public class AlbumInfoItemFieldSetProvider {
 				.infoFieldSetEntry(AlbumInfoItemFields.userNameInfoField)
 				.infoFieldSetEntry(AlbumInfoItemFields.createDateInfoField)
 				.infoFieldSetEntry(AlbumInfoItemFields.modifiedDateInfoField)
+				.infoFieldSetEntry(AlbumInfoItemFields.artistNameInfoField)
+				.infoFieldSetEntry(AlbumInfoItemFields.artistUrlInfoField)
 				.labelInfoLocalizedValue(InfoLocalizedValue.localize(getClass(), "album"))
 				.name("album")
 				.build();

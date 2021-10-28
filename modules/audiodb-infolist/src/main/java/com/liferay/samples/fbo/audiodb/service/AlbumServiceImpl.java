@@ -2,6 +2,7 @@ package com.liferay.samples.fbo.audiodb.service;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.service.GroupLocalService;
+import com.liferay.portal.kernel.service.ServiceContextThreadLocal;
 import com.liferay.samples.fbo.audiodb.infolist.model.Album;
 
 import java.io.IOException;
@@ -64,7 +65,8 @@ public class AlbumServiceImpl implements AlbumService {
 			LOG.error("Did not find Album {}", albumId);
 		}
 		
-		album.setAlbumUrl("/album/" + albumId + "-" + album.getName());
+		album.setAlbumUrl("/album/" + albumId + "-" + album.getName().replace(" ",  "-"));
+		album.setArtistUrl("/artist/" + album.getArtistName());
 		
 		return album;
 	}
@@ -77,7 +79,8 @@ public class AlbumServiceImpl implements AlbumService {
 		Album album = fetchAlbum(albumId);
 		album.setGroupId(groupId);
 		try {
-			album.setAlbumUrl("/web" + _groupLocalService.getGroup(groupId).getFriendlyURL() + "/album/" + albumId + "-" + album.getName());
+			album.setAlbumUrl("/web" + _groupLocalService.getGroup(groupId).getFriendlyURL() + "/album/" + albumId + "-" + album.getName().replace(" ",  "-"));
+			album.setArtistUrl("/web" + ServiceContextThreadLocal.getServiceContext().getScopeGroup().getFriendlyURL() + "/artist/" + album.getArtistName());
 		} catch (PortalException e) {
 			LOG.error("Failed to get Group {}", groupId, e);
 		}

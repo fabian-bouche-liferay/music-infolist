@@ -98,7 +98,17 @@ public class AlbumInfoItemFieldValuesProvider implements InfoItemFieldValuesProv
 				new InfoFieldValue<>(
 					AlbumInfoItemFields.userNameInfoField,
 					album.getUserName()));
-		
+
+		albumFieldValues.add(
+				new InfoFieldValue<>(
+					AlbumInfoItemFields.artistUrlInfoField,
+					album.getArtistUrl()));
+
+		albumFieldValues.add(
+				new InfoFieldValue<>(
+					AlbumInfoItemFields.artistNameInfoField,
+					album.getArtistName()));
+
 		return albumFieldValues;
 		
 	}

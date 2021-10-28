@@ -21,7 +21,7 @@ public class AlbumJsonParserUtil {
 	
 	public static Album parseAlbum(String json) {
 		
-		Album album = parseIndividualAlbum((Map) JsonPath.read(json, "$.album[0]"));
+		Album album = parseIndividualAlbum(JsonPath.read(json, "$.album[0]"));
 		
 		return album;
 		
@@ -41,7 +41,8 @@ public class AlbumJsonParserUtil {
 			Map<String, String> albumMap = JsonPath.read(json, "$.album[" + i + "]");
 			Album album = parseIndividualAlbum(albumMap);
 			try {
-				album.setAlbumUrl("/web" + ServiceContextThreadLocal.getServiceContext().getScopeGroup().getFriendlyURL() + "/album/" + album.getAlbumId() + "-" + album.getName());
+				album.setAlbumUrl("/web" + ServiceContextThreadLocal.getServiceContext().getScopeGroup().getFriendlyURL() + "/album/" + album.getAlbumId() + "-" + album.getName().replace(" ",  "-"));
+				album.setArtistUrl("/web" + ServiceContextThreadLocal.getServiceContext().getScopeGroup().getFriendlyURL() + "/artist/" + album.getArtistName());
 			} catch (PortalException e) {
 				LOG.error("Failed to get Group", e);
 			}
@@ -51,29 +52,7 @@ public class AlbumJsonParserUtil {
 		return albums;
 		
 	}	
-	
-	private static Album parseIndividualAlbum(String json) {
-	
-		Album album = new Album();
-		
-		album.setAlbumId(Long.valueOf(JsonPath.read(json, "$.idAlbum")));
-		album.setYearReleased(Long.valueOf(JsonPath.read(json, "$.intYearReleased")));
-		album.setReleaseFormat(JsonPath.read(json, "$.strReleaseFormat"));
-		album.setDescription(JsonPath.read(json, "$.strDescriptionEN"));
-		album.setName(JsonPath.read(json, "$.strAlbum"));
-		album.setGenre(JsonPath.read(json, "$.strGenre"));
-		album.setStyle(JsonPath.read(json, "$.strStyle"));
-		album.setLabel(JsonPath.read(json, "$.strLabel"));
-		album.setAlbumThumbUrl(JsonPath.read(json, "$.strAlbumThumb"));
 
-		album.setUserName("test");
-		album.setCreateDate(new Date());
-		album.setModifiedDate(new Date());
-
-		return album;
-		
-	}
-	
 	private static Album parseIndividualAlbum(Map<String, String> map) {
 		
 		Album album = new Album();
@@ -87,6 +66,8 @@ public class AlbumJsonParserUtil {
 		album.setStyle(map.get("strStyle"));
 		album.setLabel(map.get("strLabel"));
 		album.setAlbumThumbUrl(map.get("strAlbumThumb"));
+
+		album.setArtistName(map.get("strArtist"));
 
 		album.setUserName("test");
 		album.setCreateDate(new Date());

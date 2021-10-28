@@ -6,25 +6,27 @@ import com.liferay.portal.kernel.model.ClassedModel;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Album implements ClassedModel {
+public class Track implements ClassedModel {
 
-	private long albumId;
+	private long trackId;
+	private long trackNumber;
+	private String trackUrl;
+	private String trackDescription;
 	
 	private String name;
-	private String label;
 	private String style;
 	private String genre;
-	private String description;
-	private long yearReleased;
-	private String releaseFormat;
-	private String albumThumbUrl;
+	private int duration;
+	
+	private String musicVideoUrl;
 
+	private long albumId;
+	private String albumName;
 	private String albumUrl;
 
 	private String artistName;
 	private String artistUrl;
 
-	
 	private String userName;
 	private Date createDate;
 	private Date modifiedDate;
@@ -37,17 +39,17 @@ public class Album implements ClassedModel {
 
 	@Override
 	public Class<?> getModelClass() {
-		return Album.class;
+		return Track.class;
 	}
 
 	@Override
 	public String getModelClassName() {
-		return Album.class.getName();
+		return Track.class.getName();
 	}
 
 	@Override
 	public Serializable getPrimaryKeyObj() {
-		return albumId;
+		return trackId;
 	}
 
 	@Override
@@ -70,14 +72,6 @@ public class Album implements ClassedModel {
 		this.name = name;
 	}
 
-	public String getLabel() {
-		return label;
-	}
-
-	public void setLabel(String label) {
-		this.label = label;
-	}
-
 	public String getStyle() {
 		return style;
 	}
@@ -92,38 +86,6 @@ public class Album implements ClassedModel {
 
 	public void setGenre(String genre) {
 		this.genre = genre;
-	}
-
-	public long getYearReleased() {
-		return yearReleased;
-	}
-
-	public void setYearReleased(long yearReleased) {
-		this.yearReleased = yearReleased;
-	}
-
-	public String getReleaseFormat() {
-		return releaseFormat;
-	}
-
-	public void setReleaseFormat(String releaseFormat) {
-		this.releaseFormat = releaseFormat;
-	}
-
-	public String getAlbumThumbUrl() {
-		return albumThumbUrl;
-	}
-
-	public void setAlbumThumbUrl(String albumThumbUrl) {
-		this.albumThumbUrl = albumThumbUrl;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 
 	public String getUserName() {
@@ -181,7 +143,62 @@ public class Album implements ClassedModel {
 	public void setArtistUrl(String artistUrl) {
 		this.artistUrl = artistUrl;
 	}
-	
+
+	public long getTrackId() {
+		return trackId;
+	}
+
+	public void setTrackId(long trackId) {
+		this.trackId = trackId;
+	}
+
+	public int getDuration() {
+		return duration;
+	}
+
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+
+	public String getMusicVideoUrl() {
+		return musicVideoUrl;
+	}
+
+	public void setMusicVideoUrl(String musicVideoUrl) {
+		this.musicVideoUrl = musicVideoUrl;
+	}
+
+	public String getTrackUrl() {
+		return trackUrl;
+	}
+
+	public void setTrackUrl(String trackUrl) {
+		this.trackUrl = trackUrl;
+	}
+
+	public String getAlbumName() {
+		return albumName;
+	}
+
+	public void setAlbumName(String albumName) {
+		this.albumName = albumName;
+	}
+
+	public long getTrackNumber() {
+		return trackNumber;
+	}
+
+	public void setTrackNumber(long trackNumber) {
+		this.trackNumber = trackNumber;
+	}
+
+	public String getTrackDescription() {
+		return trackDescription;
+	}
+
+	public void setTrackDescription(String trackDescription) {
+		this.trackDescription = trackDescription;
+	}
 	
 	
 }

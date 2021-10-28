@@ -2,13 +2,34 @@ package com.liferay.samples.fbo.audiodb.infolist.provider;
 
 import com.liferay.info.field.InfoField;
 import com.liferay.info.field.type.DateInfoFieldType;
-import com.liferay.info.field.type.ImageInfoFieldType;
 import com.liferay.info.field.type.NumberInfoFieldType;
 import com.liferay.info.field.type.TextInfoFieldType;
 import com.liferay.info.field.type.URLInfoFieldType;
 import com.liferay.info.localized.InfoLocalizedValue;
 
-public class AlbumInfoItemFields {
+public class TrackInfoItemFields {
+
+	public static final InfoField<NumberInfoFieldType> trackIdInfoField =
+			InfoField.builder(
+			).infoFieldType(
+				NumberInfoFieldType.INSTANCE
+			).name(
+				"trackId"
+			).labelInfoLocalizedValue(
+				InfoLocalizedValue.localize(
+					TrackInfoItemFields.class, "trackId")
+			).build();
+	
+	public static final InfoField<NumberInfoFieldType> trackNumberInfoField =
+			InfoField.builder(
+			).infoFieldType(
+				NumberInfoFieldType.INSTANCE
+			).name(
+				"trackNumber"
+			).labelInfoLocalizedValue(
+				InfoLocalizedValue.localize(
+					TrackInfoItemFields.class, "trackNumber")
+			).build();
 	
 	public static final InfoField<NumberInfoFieldType> albumIdInfoField =
 			InfoField.builder(
@@ -18,32 +39,10 @@ public class AlbumInfoItemFields {
 				"albumId"
 			).labelInfoLocalizedValue(
 				InfoLocalizedValue.localize(
-					AlbumInfoItemFields.class, "albumId")
-			).build();
-
-	public static final InfoField<NumberInfoFieldType> albumYearReleasedInfoField =
-			InfoField.builder(
-			).infoFieldType(
-				NumberInfoFieldType.INSTANCE
-			).name(
-				"albumYearReleased"
-			).labelInfoLocalizedValue(
-				InfoLocalizedValue.localize(
-					AlbumInfoItemFields.class, "albumYearReleased")
-			).build();
-
-	public static final InfoField<TextInfoFieldType> releaseFormatInfoField =
-			InfoField.builder(
-			).infoFieldType(
-				TextInfoFieldType.INSTANCE
-			).name(
-				"releaseFormat"
-			).labelInfoLocalizedValue(
-				InfoLocalizedValue.localize(
-					AlbumInfoItemFields.class, "releaseFormat")
+					TrackInfoItemFields.class, "albumId")
 			).build();
 	
-	public static final InfoField<TextInfoFieldType> nameInfoField =
+	public static final InfoField<TextInfoFieldType> albumNameInfoField =
 			InfoField.builder(
 			).infoFieldType(
 				TextInfoFieldType.INSTANCE
@@ -51,65 +50,10 @@ public class AlbumInfoItemFields {
 				"albumName"
 			).labelInfoLocalizedValue(
 				InfoLocalizedValue.localize(
-					AlbumInfoItemFields.class, "albumName")
+					TrackInfoItemFields.class, "albumName")
 			).build();
 
-	public static final InfoField<TextInfoFieldType> descriptionInfoField =
-			InfoField.builder(
-			).infoFieldType(
-				TextInfoFieldType.INSTANCE
-			).name(
-				"albumDescription"
-			).labelInfoLocalizedValue(
-				InfoLocalizedValue.localize(
-					AlbumInfoItemFields.class, "albumDescription")
-			).build();
-	
-	public static final InfoField<TextInfoFieldType> labelInfoField =
-			InfoField.builder(
-			).infoFieldType(
-				TextInfoFieldType.INSTANCE
-			).name(
-				"albumLabel"
-			).labelInfoLocalizedValue(
-				InfoLocalizedValue.localize(
-					AlbumInfoItemFields.class, "albumLabel")
-			).build();
-	
-	public static final InfoField<TextInfoFieldType> styleInfoField =
-			InfoField.builder(
-			).infoFieldType(
-				TextInfoFieldType.INSTANCE
-			).name(
-				"albumStyle"
-			).labelInfoLocalizedValue(
-				InfoLocalizedValue.localize(
-					AlbumInfoItemFields.class, "albumStyle")
-			).build();
-	
-	public static final InfoField<TextInfoFieldType> genreInfoField =
-			InfoField.builder(
-			).infoFieldType(
-				TextInfoFieldType.INSTANCE
-			).name(
-				"albumGenre"
-			).labelInfoLocalizedValue(
-				InfoLocalizedValue.localize(
-					AlbumInfoItemFields.class, "albumGenre")
-			).build();	
-	
-	public static final InfoField<ImageInfoFieldType> thumbUrlInfoField =
-			InfoField.builder(
-			).infoFieldType(
-				ImageInfoFieldType.INSTANCE
-			).name(
-				"albumThumbUrl"
-			).labelInfoLocalizedValue(
-				InfoLocalizedValue.localize(
-					AlbumInfoItemFields.class, "albumThumbUrl")
-			).build();
-
-	public static final InfoField<URLInfoFieldType> urlInfoField =
+	public static final InfoField<URLInfoFieldType> albumUrlInfoField =
 			InfoField.builder(
 			).infoFieldType(
 				URLInfoFieldType.INSTANCE
@@ -117,7 +61,51 @@ public class AlbumInfoItemFields {
 				"albumUrl"
 			).labelInfoLocalizedValue(
 				InfoLocalizedValue.localize(
-					AlbumInfoItemFields.class, "albumUrl")
+					TrackInfoItemFields.class, "albumUrl")
+			).build();
+	
+	public static final InfoField<TextInfoFieldType> nameInfoField =
+			InfoField.builder(
+			).infoFieldType(
+				TextInfoFieldType.INSTANCE
+			).name(
+				"trackName"
+			).labelInfoLocalizedValue(
+				InfoLocalizedValue.localize(
+					TrackInfoItemFields.class, "trackName")
+			).build();
+
+	public static final InfoField<TextInfoFieldType> styleInfoField =
+			InfoField.builder(
+			).infoFieldType(
+				TextInfoFieldType.INSTANCE
+			).name(
+				"trackStyle"
+			).labelInfoLocalizedValue(
+				InfoLocalizedValue.localize(
+					TrackInfoItemFields.class, "trackStyle")
+			).build();
+	
+	public static final InfoField<TextInfoFieldType> genreInfoField =
+			InfoField.builder(
+			).infoFieldType(
+				TextInfoFieldType.INSTANCE
+			).name(
+				"trackGenre"
+			).labelInfoLocalizedValue(
+				InfoLocalizedValue.localize(
+					TrackInfoItemFields.class, "trackGenre")
+			).build();	
+
+	public static final InfoField<URLInfoFieldType> urlInfoField =
+			InfoField.builder(
+			).infoFieldType(
+				URLInfoFieldType.INSTANCE
+			).name(
+				"trackUrl"
+			).labelInfoLocalizedValue(
+				InfoLocalizedValue.localize(
+					TrackInfoItemFields.class, "trackUrl")
 			).build();
 	
 	public static final InfoField<TextInfoFieldType> userNameInfoField =
@@ -128,7 +116,7 @@ public class AlbumInfoItemFields {
 				"userName"
 			).labelInfoLocalizedValue(
 				InfoLocalizedValue.localize(
-					AlbumInfoItemFields.class, "userName")
+					TrackInfoItemFields.class, "userName")
 			).build();
 
 	public static final InfoField<DateInfoFieldType> createDateInfoField =
@@ -139,7 +127,7 @@ public class AlbumInfoItemFields {
 				"createDate"
 			).labelInfoLocalizedValue(
 				InfoLocalizedValue.localize(
-					AlbumInfoItemFields.class, "createDate")
+					TrackInfoItemFields.class, "createDate")
 			).build();
 	
 	public static final InfoField<DateInfoFieldType> modifiedDateInfoField =
@@ -150,7 +138,7 @@ public class AlbumInfoItemFields {
 				"modifiedDate"
 			).labelInfoLocalizedValue(
 				InfoLocalizedValue.localize(
-					AlbumInfoItemFields.class, "modifiedDate")
+					TrackInfoItemFields.class, "modifiedDate")
 			).build();
 	
 	public static final InfoField<URLInfoFieldType> artistUrlInfoField =
@@ -161,7 +149,7 @@ public class AlbumInfoItemFields {
 				"artistUrl"
 			).labelInfoLocalizedValue(
 				InfoLocalizedValue.localize(
-					AlbumInfoItemFields.class, "artistUrl")
+					TrackInfoItemFields.class, "artistUrl")
 			).build();
 	
 	public static final InfoField<TextInfoFieldType> artistNameInfoField =
@@ -172,6 +160,39 @@ public class AlbumInfoItemFields {
 				"artistName"
 			).labelInfoLocalizedValue(
 				InfoLocalizedValue.localize(
-					AlbumInfoItemFields.class, "artistName")
+					TrackInfoItemFields.class, "artistName")
 			).build();
+
+	public static final InfoField<TextInfoFieldType> trackDescriptionInfoField =
+			InfoField.builder(
+			).infoFieldType(
+				TextInfoFieldType.INSTANCE
+			).name(
+				"trackDescription"
+			).labelInfoLocalizedValue(
+				InfoLocalizedValue.localize(
+					TrackInfoItemFields.class, "trackDescription")
+			).build();
+	public static final InfoField<NumberInfoFieldType> trackDurationInfoField =
+			InfoField.builder(
+			).infoFieldType(
+				NumberInfoFieldType.INSTANCE
+			).name(
+				"trackDuration"
+			).labelInfoLocalizedValue(
+				InfoLocalizedValue.localize(
+					TrackInfoItemFields.class, "trackDuration")
+			).build();
+	
+	public static final InfoField<URLInfoFieldType> musicVideoUrlInfoField =
+			InfoField.builder(
+			).infoFieldType(
+				URLInfoFieldType.INSTANCE
+			).name(
+				"musicVideoUrl"
+			).labelInfoLocalizedValue(
+				InfoLocalizedValue.localize(
+					TrackInfoItemFields.class, "musicVideoUrl")
+			).build();
+
 }
