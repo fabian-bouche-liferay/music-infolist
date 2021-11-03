@@ -59,12 +59,32 @@ public class AlbumJsonParserUtil {
 		
 		album.setAlbumId(Long.valueOf(map.get("idAlbum")));
 		album.setYearReleased(Long.valueOf(map.get("intYearReleased")));
-		album.setReleaseFormat(map.get("strReleaseFormat"));
-		album.setDescription(map.get("strDescriptionEN"));
+		if(map.get("strReleaseFormat") != null) {
+			album.setReleaseFormat(map.get("strReleaseFormat"));
+		} else {
+			album.setReleaseFormat("n/a");
+		}
+		if(map.get("strDescriptionEN") != null) {
+			album.setDescription(map.get("strDescriptionEN"));
+		} else {
+			album.setDescription("n/a");
+		}
 		album.setName(map.get("strAlbum"));
-		album.setGenre(map.get("strGenre"));
-		album.setStyle(map.get("strStyle"));
-		album.setLabel(map.get("strLabel"));
+		if(map.get("strGenre") != null) {
+			album.setGenre(map.get("strGenre"));
+		} else {
+			album.setGenre("n/a");
+		}
+		if(map.get("strStyle") != null) {
+			album.setStyle(map.get("strStyle"));
+		} else {
+			album.setStyle("n/a");
+		}
+		if(map.get("strLabel") != null) {
+			album.setLabel(map.get("strLabel"));
+		} else {
+			album.setLabel("n/a");
+		}
 		album.setAlbumThumbUrl(map.get("strAlbumThumb"));
 
 		album.setArtistName(map.get("strArtist"));

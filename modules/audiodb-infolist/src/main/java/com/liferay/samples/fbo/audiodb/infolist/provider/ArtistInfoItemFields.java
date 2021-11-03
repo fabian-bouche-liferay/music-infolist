@@ -75,6 +75,17 @@ public class ArtistInfoItemFields {
 				InfoLocalizedValue.localize(
 					ArtistInfoItemFields.class, "artistBiography")
 			).build();
+
+	public static final InfoField<TextInfoFieldType> shortBioInfoField =
+			InfoField.builder(
+			).infoFieldType(
+				TextInfoFieldType.INSTANCE
+			).name(
+				"artistShortBio"
+			).labelInfoLocalizedValue(
+				InfoLocalizedValue.localize(
+					ArtistInfoItemFields.class, "artistShortBio")
+			).build();
 	
 	public static final InfoField<TextInfoFieldType> countryInfoField =
 			InfoField.builder(

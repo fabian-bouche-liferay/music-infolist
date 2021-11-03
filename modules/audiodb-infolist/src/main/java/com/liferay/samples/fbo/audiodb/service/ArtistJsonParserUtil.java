@@ -13,11 +13,31 @@ public class ArtistJsonParserUtil {
 		
 		artist.setArtistId(Long.valueOf(JsonPath.read(json, "$.artists[0].idArtist")));
 		artist.setName(JsonPath.read(json, "$.artists[0].strArtist"));
-		artist.setBiography(JsonPath.read(json, "$.artists[0].strBiographyEN"));
-		artist.setCountry(JsonPath.read(json, "$.artists[0].strCountry"));
-		artist.setGenre(JsonPath.read(json, "$.artists[0].strGenre"));
-		artist.setStyle(JsonPath.read(json, "$.artists[0].strStyle"));
-		artist.setLabel(JsonPath.read(json, "$.artists[0].strLabel"));
+		if(JsonPath.read(json, "$.artists[0].strBiographyEN") != null) {
+			artist.setBiography(JsonPath.read(json, "$.artists[0].strBiographyEN"));
+		} else {
+			artist.setBiography("n/a");
+		}
+		if(JsonPath.read(json, "$.artists[0].strCountry") != null) {
+			artist.setCountry(JsonPath.read(json, "$.artists[0].strCountry"));
+		} else {
+			artist.setCountry("n/a");
+		}
+		if(JsonPath.read(json, "$.artists[0].strGenre") != null) {
+			artist.setGenre(JsonPath.read(json, "$.artists[0].strGenre"));
+		} else {
+			artist.setGenre("n/a");
+		}
+		if(JsonPath.read(json, "$.artists[0].strStyle") != null) {
+			artist.setStyle(JsonPath.read(json, "$.artists[0].strStyle"));
+		} else {
+			artist.setStyle("n/a");
+		}
+		if(JsonPath.read(json, "$.artists[0].strLabel") != null) {
+			artist.setLabel(JsonPath.read(json, "$.artists[0].strLabel"));
+		} else {
+			artist.setLabel("n/a");
+		}
 		artist.setLogoUrl(JsonPath.read(json, "$.artists[0].strArtistLogo"));
 		artist.setThumbUrl(JsonPath.read(json, "$.artists[0].strArtistThumb"));
 

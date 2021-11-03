@@ -94,6 +94,14 @@ public class Artist implements ClassedModel {
 		return biography;
 	}
 
+	public String getShortBio() {
+		if(biography.length() > 497) {
+			return biography.substring(0, 497).concat("...");
+		} else {
+			return biography;
+		}
+	}
+	
 	public void setBiography(String biography) {
 		this.biography = biography;
 	}

@@ -122,6 +122,14 @@ public class Album implements ClassedModel {
 		return description;
 	}
 
+	public String getShortDescription() {
+		if(description.length() > 497) {
+			return description.substring(0, 497).concat("...");
+		} else {
+			return description;
+		}
+	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}

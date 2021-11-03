@@ -61,6 +61,11 @@ public class AlbumInfoItemFieldValuesProvider implements InfoItemFieldValuesProv
 
 		albumFieldValues.add(
 				new InfoFieldValue<>(
+					AlbumInfoItemFields.shortDescriptionInfoField,
+					album.getShortDescription()));
+
+		albumFieldValues.add(
+				new InfoFieldValue<>(
 					AlbumInfoItemFields.genreInfoField,
 					album.getGenre()));
 		

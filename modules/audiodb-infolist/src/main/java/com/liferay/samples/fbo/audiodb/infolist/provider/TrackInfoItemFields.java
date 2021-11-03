@@ -173,10 +173,10 @@ public class TrackInfoItemFields {
 				InfoLocalizedValue.localize(
 					TrackInfoItemFields.class, "trackDescription")
 			).build();
-	public static final InfoField<NumberInfoFieldType> trackDurationInfoField =
+	public static final InfoField<TextInfoFieldType> trackDurationInfoField =
 			InfoField.builder(
 			).infoFieldType(
-				NumberInfoFieldType.INSTANCE
+				TextInfoFieldType.INSTANCE
 			).name(
 				"trackDuration"
 			).labelInfoLocalizedValue(

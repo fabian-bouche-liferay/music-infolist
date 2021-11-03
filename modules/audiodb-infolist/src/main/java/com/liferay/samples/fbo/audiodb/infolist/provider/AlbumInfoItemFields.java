@@ -64,7 +64,18 @@ public class AlbumInfoItemFields {
 				InfoLocalizedValue.localize(
 					AlbumInfoItemFields.class, "albumDescription")
 			).build();
-	
+
+	public static final InfoField<TextInfoFieldType> shortDescriptionInfoField =
+			InfoField.builder(
+			).infoFieldType(
+				TextInfoFieldType.INSTANCE
+			).name(
+				"albumShortDescription"
+			).labelInfoLocalizedValue(
+				InfoLocalizedValue.localize(
+					AlbumInfoItemFields.class, "albumShortDescription")
+			).build();
+
 	public static final InfoField<TextInfoFieldType> labelInfoField =
 			InfoField.builder(
 			).infoFieldType(

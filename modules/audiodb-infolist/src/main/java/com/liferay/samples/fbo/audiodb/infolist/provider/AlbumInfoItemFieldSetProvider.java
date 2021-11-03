@@ -16,6 +16,7 @@ public class AlbumInfoItemFieldSetProvider {
 				.infoFieldSetEntry(AlbumInfoItemFields.albumIdInfoField)
 				.infoFieldSetEntry(AlbumInfoItemFields.nameInfoField)
 				.infoFieldSetEntry(AlbumInfoItemFields.descriptionInfoField)
+				.infoFieldSetEntry(AlbumInfoItemFields.shortDescriptionInfoField)
 				.infoFieldSetEntry(AlbumInfoItemFields.albumYearReleasedInfoField)
 				.infoFieldSetEntry(AlbumInfoItemFields.releaseFormatInfoField)
 				.infoFieldSetEntry(AlbumInfoItemFields.genreInfoField)

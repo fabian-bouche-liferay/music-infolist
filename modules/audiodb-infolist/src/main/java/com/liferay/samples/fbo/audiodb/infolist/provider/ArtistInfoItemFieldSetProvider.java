@@ -16,6 +16,7 @@ public class ArtistInfoItemFieldSetProvider {
 				.infoFieldSetEntry(ArtistInfoItemFields.artistIdInfoField)
 				.infoFieldSetEntry(ArtistInfoItemFields.nameInfoField)
 				.infoFieldSetEntry(ArtistInfoItemFields.biographyInfoField)
+				.infoFieldSetEntry(ArtistInfoItemFields.shortBioInfoField)
 				.infoFieldSetEntry(ArtistInfoItemFields.countryInfoField)
 				.infoFieldSetEntry(ArtistInfoItemFields.genreInfoField)
 				.infoFieldSetEntry(ArtistInfoItemFields.styleInfoField)

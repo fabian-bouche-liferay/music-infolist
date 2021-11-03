@@ -34,6 +34,11 @@ public class ArtistServiceImpl implements ArtistService {
 		artists.add(fetchArtist("coldplay"));
 		artists.add(fetchArtist("muse"));
 		artists.add(fetchArtist("oasis"));
+		artists.add(fetchArtist("beatles"));
+		artists.add(fetchArtist("epica"));
+		artists.add(fetchArtist("amorphis"));
+		artists.add(fetchArtist("metric"));
+		artists.add(fetchArtist("sia"));
 		
 		return artists;
 	}

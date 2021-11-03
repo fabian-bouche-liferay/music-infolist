@@ -16,7 +16,7 @@ public class Track implements ClassedModel {
 	private String name;
 	private String style;
 	private String genre;
-	private int duration;
+	private String duration;
 	
 	private String musicVideoUrl;
 
@@ -152,11 +152,11 @@ public class Track implements ClassedModel {
 		this.trackId = trackId;
 	}
 
-	public int getDuration() {
+	public String getDuration() {
 		return duration;
 	}
 
-	public void setDuration(int duration) {
+	public void setDuration(String duration) {
 		this.duration = duration;
 	}
 

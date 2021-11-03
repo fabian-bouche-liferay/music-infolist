@@ -45,6 +45,11 @@ public class ArtistInfoItemFieldValuesProvider implements InfoItemFieldValuesPro
 
 		artistFieldValues.add(
 				new InfoFieldValue<>(
+					ArtistInfoItemFields.shortBioInfoField,
+					artist.getShortBio()));
+
+		artistFieldValues.add(
+				new InfoFieldValue<>(
 					ArtistInfoItemFields.countryInfoField,
 					artist.getCountry()));
 

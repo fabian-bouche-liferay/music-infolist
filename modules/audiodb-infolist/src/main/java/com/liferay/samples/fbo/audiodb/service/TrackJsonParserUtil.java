@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,12 +68,35 @@ public class TrackJsonParserUtil {
 		track.setAlbumId(Long.valueOf(map.get("idAlbum")));
 		track.setAlbumName(map.get("strAlbum"));
 		track.setName(map.get("strTrack"));
-		track.setGenre(map.get("strGenre"));
-		track.setStyle(map.get("strStyle"));
-		track.setTrackDescription(map.get("strDescriptionEN"));
+		if(map.get("strGenre") != null) {
+			track.setGenre(map.get("strGenre"));
+		} else {
+			track.setGenre("n/a");
+		}
+		if(map.get("strStyle") != null) {
+			track.setStyle(map.get("strStyle"));
+		} else {
+			track.setStyle("n/a");
+		}
+		if(map.get("strDescriptionEN") != null) {
+			track.setTrackDescription(map.get("strDescriptionEN"));
+		} else {
+			track.setTrackDescription("n/a");
+		}
 		
 		if(map.get("strMusicVid") != null) {
 			track.setMusicVideoUrl(map.get("strMusicVid"));
+		} else {
+			track.setMusicVideoUrl("");
+		}
+		
+		if(map.get("intDuration") != null) {
+			int duration = Integer.parseInt(map.get("intDuration"));
+		    String mmss = String.format("%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(duration),
+		            TimeUnit.MILLISECONDS.toSeconds(duration) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(duration)));
+			track.setDuration(mmss);
+		} else {
+			track.setDuration("n/a");
 		}
 			
 		track.setArtistName(map.get("strArtist"));
